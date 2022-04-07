@@ -1,0 +1,43 @@
+def iteration(A,X,N):#This functin creates the iterations for all 3 requested iteration
+    i = 1
+    n = 0
+    limit = ((N+1)*X)
+    while n<= limit:
+        n = (A+N)*i
+        if n <= limit:
+            print(n)
+            i+=1
+        else:
+            pass    
+
+def value_input(text):#This function creates a user input statement which loops back when the input is not the one desired
+    while True:
+        try:
+            x = float(input(text))
+            if x>0:
+                break
+            else:
+                print("Value should be higher than 0")
+        except:
+            print("Please Input number")
+    return x
+
+def main():#In this function you get the values of A and X and does the first iteration
+    A = value_input("Input multiple: ")
+    X = value_input("Input limit: ")
+    first_iter = iteration(A,X,1)
+
+main()
+while True:#In this loop you can recall the main function if the user wants to repeat the code
+    answer = str(input("Whould you like to continue?(y/n) "))
+    try:
+        if answer == 'y':
+            print("Ok!")
+            main()
+        elif answer == 'n':
+            print("Ok, goodbye!")
+            break
+        else:
+            raise
+    except:
+        print("Not a reasonable answer")
